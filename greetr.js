@@ -102,6 +102,24 @@
 
             // Make chainable
             return this;
+        },
+
+        htmlGreeting: function (selector) {
+            if (!$) {
+                throw 'jQuery not loaded';
+            }
+            if (!selector) {
+                throw 'Missing jQuery selector';
+            }
+
+            var msg;
+            msg = this.greeting();
+
+            // Inject the message in the chosen place in the DOM
+            $(selector).html(msg);
+
+            // Make chainable
+            return this;
         }
 
     };
